@@ -211,6 +211,7 @@
 		1B6DE9D823C5940B007F9859 /* EditorCommandSnapshotTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditorCommandSnapshotTests.swift; sourceTree = "<group>"; };
 		1B7A985623C4828A00C34B14 /* RichTextEditorContext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RichTextEditorContext.swift; sourceTree = "<group>"; };
 		1B7A985823C484BC00C34B14 /* RichTextViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RichTextViewDelegate.swift; sourceTree = "<group>"; };
+		1B7BE8A926BE5629000547FC /* ProtonCore.modulemap */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.module-map"; path = ProtonCore.modulemap; sourceTree = "<group>"; };
 		1B7C76A72608A489006618AC /* BoldCommand.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoldCommand.swift; sourceTree = "<group>"; };
 		1B7C76A82608A489006618AC /* ItalicsCommand.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItalicsCommand.swift; sourceTree = "<group>"; };
 		1B7C76A92608A489006618AC /* FontTraitToggleCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontTraitToggleCommand.swift; sourceTree = "<group>"; };
@@ -269,7 +270,6 @@
 		1BD993BF23C9EAA900563ACB /* TextTransformer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextTransformer.swift; sourceTree = "<group>"; };
 		1BD993C323CACCE100563ACB /* MockAttachment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockAttachment.swift; sourceTree = "<group>"; };
 		1BE8825E250DD7B600E2CC1B /* PRTextStorage.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PRTextStorage.m; sourceTree = "<group>"; };
-		1BE88260250DD81500E2CC1B /* Proton-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Proton-Bridging-Header.h"; sourceTree = "<group>"; };
 		1BE88263250E3ADB00E2CC1B /* PREditorContentName.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PREditorContentName.m; sourceTree = "<group>"; };
 		1BF90FB3245E503E00A411A3 /* TextBlockAttributeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextBlockAttributeTests.swift; sourceTree = "<group>"; };
 		1BFDC80E254A9BFC00BD83BD /* ListParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListParser.swift; sourceTree = "<group>"; };
@@ -579,15 +579,6 @@
 			path = Renderer;
 			sourceTree = "<group>";
 		};
-		1B9AED8926059D1A00660B99 /* include */ = {
-			isa = PBXGroup;
-			children = (
-				1B9AED8A26059D1A00660B99 /* PRTextStorage.h */,
-				1B9AED8B26059D1A00660B99 /* PREditorContentName.h */,
-			);
-			path = include;
-			sourceTree = "<group>";
-		};
 		1BB214BC23BB2778008B84A0 = {
 			isa = PBXGroup;
 			children = (
@@ -615,7 +606,6 @@
 				1BE3305826057DA100B15E67 /* ObjC */,
 				1BE3305B26057E1100B15E67 /* Swift */,
 				1BB214CA23BB2778008B84A0 /* Info.plist */,
-				1BE88260250DD81500E2CC1B /* Proton-Bridging-Header.h */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -724,9 +714,11 @@
 		1BE3305826057DA100B15E67 /* ObjC */ = {
 			isa = PBXGroup;
 			children = (
-				1B9AED8926059D1A00660B99 /* include */,
+				1B9AED8A26059D1A00660B99 /* PRTextStorage.h */,
+				1B9AED8B26059D1A00660B99 /* PREditorContentName.h */,
 				1BE8825E250DD7B600E2CC1B /* PRTextStorage.m */,
 				1BE88263250E3ADB00E2CC1B /* PREditorContentName.m */,
+				1B7BE8A926BE5629000547FC /* ProtonCore.modulemap */,
 			);
 			path = ObjC;
 			sourceTree = "<group>";
@@ -1139,6 +1131,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				MODULEMAP_FILE = "";
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -1197,6 +1190,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				MODULEMAP_FILE = "";
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -1231,7 +1225,6 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.rajdeep.Proton;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
-				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/Sources/Proton-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1262,7 +1255,6 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.rajdeep.Proton;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
-				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/Sources/Proton-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TVOS_DEPLOYMENT_TARGET = 12.0;
@@ -1330,6 +1322,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
+				MODULEMAP_FILE = $PROJECT_DIR/Sources/ObjC/ProtonCore.modulemap;
 				PRODUCT_BUNDLE_IDENTIFIER = com.rajdeep.Proton.ProtonCore;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
@@ -1355,6 +1348,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
+				MODULEMAP_FILE = $PROJECT_DIR/Sources/ObjC/ProtonCore.modulemap;
 				PRODUCT_BUNDLE_IDENTIFIER = com.rajdeep.Proton.ProtonCore;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
